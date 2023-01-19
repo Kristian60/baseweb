@@ -3,8 +3,8 @@
 
 {% block content %}
 <!-- Image -->
-<section class="hero ">
-    <div class="hero-body">
+<section>
+    <div class="body">
         <div class="container">
             <div class="columns">
                 <div class="column is-8 is-offset-2">
@@ -18,63 +18,142 @@
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="content is-medium">
-                            <h2 class="subtitle is-4">December 25, 2018</h2>
-                            <h1 class="title">Getting Started</h1>
-                            <p>This is a starter template for creating a beautiful, customizable blog with minimal
-                                effort. You’ll only have to change a few settings and you’re ready to go. As with
-                                all Jigsaw sites,
-                                configuration settings can be found in config</p>
+                            <h2 class="subtitle is-4">January 19, 2023</h2>
+                            <h1 class="title">Welcome to Baserank</h1>
+                            <p>Baserank is a global registry of CrossFit and functional fitness competitions worldwide.
+                                On top of that Baserank is a propietary ranking model based on Baysean statistics,
+                                attempting to rank all athltes in the world.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <div class="is-divider"></div>
+            <section>
+                <div class="row">
 
+                    <div class="col">
+                        <div class="card shadow">
+                            <table class="table mb-0 table-hover">
+                                <thead class="table-primary">
+                                <tr>
+                                    <th></th>
+                                    <td>World Top 10 men</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for i in ww_m %}
+                                <tr>
+                                    <th>1</th>
+                                    <td><img class="mr-1 fw-bold"
+                                             src="{{ url_for('static', filename='flags/shiny/16/' + i[5] + '.png') }}"><a
+                                            href="#">{{i[1]}} {{i[2]}} </a></td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow">
+                            <table class="table mb-0 table-hover">
+                                <thead class="table-primary">
+                                <tr>
+                                    <th></th>
+                                    <td>World Top 10 women</td>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                {% for i in ww_f %}
+                                <tr>
+                                    <th>1</th>
+                                    <td><img class="mr-1 fw-bold"
+                                             src="{{ url_for('static', filename='flags/shiny/16/' + i[5] + '.png') }}"><a
+                                            href="#">{{i[1]}} {{i[2]}} </a></td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow">
+                            <table class="table mb-0 table-hover">
+                                <thead class="table-primary">
+                                <tr>
+                                    <th></th>
+                                    <td>Denmark Top 10 men</td>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                {% for i in dk_m %}
+                                <tr>
+                                    <th>1</th>
+                                    <td><img class="mr-1 fw-bold"
+                                             src="{{ url_for('static', filename='flags/shiny/16/' + i[5] + '.png') }}"><a
+                                            href="#">{{i[1]}} {{i[2]}} </a></td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow">
+                            <table class="table mb-0 table-hover">
+
+                                <thead class="table-primary">
+                                <tr>
+                                    <th></th>
+                                    <td colspan="3">Denmark Top 10 women</td>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                {% for i in dk_f %}
+                                <tr>
+                                    <th>1</th>
+                                    <td><img class="mr-1 fw-bold"
+                                             src="{{ url_for('static', filename='flags/shiny/16/' + i[5] + '.png') }}">
+                                        <a href="#">{{i[1]}} {{i[2]}} </a></td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <div class="is-divider"></div>
             <section class="section">
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="content is-medium">
-                            <h2 class="subtitle is-4">December 25, 2018</h2>
-                            <h1 class="title">Getting Started</h1>
-                            <p>This is a starter template for creating a beautiful, customizable blog with minimal
-                                effort. You’ll only have to change a few settings and you’re ready to go. As with
-                                all Jigsaw sites,
-                                configuration settings can be found in config</p>
+                            <h2 class="subtitle is-4">Newest registered competitions</h2>
+                            <div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Cras justo odio</li>
+                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-
         </div>
     </div>
 </section>
 
-<!-- newsletter -->
-<section class="section">
-    <div class="columns">
-        <div class="column is-10 is-offset-1">
-            <div class="container has-text-centered is-fluid">
-                <div class="hero is-light">
-                    <div class="hero-body">
-                        <h2 class="title is-4">Sign up for our newsletter</h1>
-                            <div class="column is-6 is-offset-3">
-                                <div class="field has-addons has-addons-centered">
-                                    <div class="control is-expanded">
-                                        <input class="input " type="text" placeholder="Email address">
-                                    </div>
-                                    <div class="control">
-                                        <a class="button is-info">
-                                            Subscribe
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 {% endblock %}

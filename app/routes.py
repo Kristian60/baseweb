@@ -1,14 +1,17 @@
 from app import app
 from flask import render_template, redirect
-
 from .forms import SampleForm
 
-
+from .procedures import get_top_worldwide, get_top_per_nationality
 @app.route('/')
 @app.route('/index')
 @app.route('/home')
 def index():
-    return render_template('index.html')
+    dk_m = get_top_per_nationality('DK', 'M')
+    dk_f = get_top_per_nationality('DK', 'F')
+    ww_f = get_top_worldwide('F')
+    ww_m = get_top_worldwide('M')
+    return render_template('index.html', dk_f=dk_f, dk_m=dk_m, ww_f=ww_f, ww_m=ww_m)
 
 
 @app.route('/articles')

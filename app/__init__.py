@@ -1,10 +1,7 @@
-"""
-Flask app initialiser
-"""
-
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import sqlite3
 
 # Set a project base directory variable
 baseDir = os.path.abspath(os.path.dirname(__file__))
