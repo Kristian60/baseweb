@@ -2,7 +2,6 @@ import sqlite3
 import os
 
 def call_db(query):
-    print(os.getcwd())
     sqliteConnection = sqlite3.connect('app/db/db.db')
     cursor = sqliteConnection.cursor()
 
@@ -16,8 +15,14 @@ def get_top_worldwide(gender):
     query = f'''
     select * from athletes a
 
+    join skills s
+    on a.athlete_id = s.athlete_id
     where a.gender = '{gender}'
-    order by RANDOM()
+    and to_date = '9999-12-31'
+    
+    order by mu-3*sigma desc
+    
+    LIMIT 10;
     '''
 
     return call_db(query)[:10]
@@ -26,9 +31,14 @@ def get_top_per_nationality(nation, gender):
     query = f'''
     select * from athletes a
 
-    where a.nationality = '{nation}'
-    and a.gender = '{gender}'
-    order by RANDOM()
+    join skills s
+    on a.athlete_id = s.athlete_id
+    
+    where a.gender = '{gender}'
+    and a.nationality = '{nation}'
+    and to_date = '9999-12-31'
+    
+    LIMIT 10;
     '''
 
     return call_db(query)[:10]
