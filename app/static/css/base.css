@@ -13,3 +13,22 @@ a{
     color: #212529
 
 }
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+}
+
+.navbar-nav > a {
+    display: inline-block;
+    float:none;
+}
+
+.navbar-brand{
+    font-size:2.5rem;
+}
+
+.nav-link{
+    font-size:1.2rem;
+}

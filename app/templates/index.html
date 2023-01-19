@@ -4,15 +4,7 @@
 {% block content %}
 <!-- Image -->
 <section>
-    <div class="body">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8 is-offset-2">
-                    <figure class="image is-16by9">
-                        <img src="{{ url_for('static', filename='images/first-post.png')}}" alt="">
-                    </figure>
-                </div>
-            </div>
+
 
             <section class="section">
                 <div class="columns">
@@ -48,7 +40,7 @@
                                     <th>{{ loop.index0 + 1 }}</th>
                                     <td><img class="mr-1 fw-bold"
                                              src="{{ url_for('static', filename='flags/shiny/16/' + i[5] + '.png') }}"><a
-                                            href="#">{{i[1]}} {{i[2]}} </a></td>
+                                            href="/athletes?id={{i[0]}}">{{i[1]}} {{i[2]}} </a></td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>
@@ -73,7 +65,7 @@
                                     <th>{{ loop.index0 + 1 }}</th>
                                     <td><img class="mr-1 fw-bold"
                                              src="{{ url_for('static', filename='flags/shiny/16/' + i[5] + '.png') }}"><a
-                                            href="#">{{i[1]}} {{i[2]}} </a></td>
+                                            href="/athletes?id={{i[0]}}">{{i[1]}} {{i[2]}} </a></td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>
@@ -98,7 +90,7 @@
                                     <th>{{ loop.index0 + 1}}</th>
                                     <td><img class="mr-1 fw-bold"
                                              src="{{ url_for('static', filename='flags/shiny/16/' + i[5] + '.png') }}"><a
-                                            href="#">{{i[1]}} {{i[2]}} </a></td>
+                                            href="/athletes?id={{i[0]}}">{{i[1]}} {{i[2]}} </a></td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>
@@ -124,7 +116,7 @@
                                     <th>{{ loop.index0 + 1 }}</th>
                                     <td><img class="mr-1 fw-bold"
                                              src="{{ url_for('static', filename='flags/shiny/16/' + i[5] + '.png') }}">
-                                        <a href="#">{{i[1]}} {{i[2]}} </a></td>
+                                        <a href="/athletes?id={{i[0]}}">{{i[1]}} {{i[2]}} </a></td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>
@@ -153,8 +145,6 @@
                 </div>
             </section>
 
-        </div>
-    </div>
 </section>
 
 {% endblock %}

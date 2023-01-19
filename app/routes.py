@@ -14,9 +14,9 @@ def index():
     return render_template('index.html', dk_f=dk_f, dk_m=dk_m, ww_f=ww_f, ww_m=ww_m)
 
 
-@app.route('/articles')
+@app.route('/athletes')
 def articles():
-    return render_template('articles.html')
+    return render_template('athletes.html')
 
 
 @app.route('/forms', methods=['GET', 'POST'])
