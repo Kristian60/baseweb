@@ -3,41 +3,62 @@
 
 {% block content %}
 <!-- Image -->
-<section>
-    <div class="body">
-
-        <section class="section">
-            <div class="columns">
-                <div class="column is-8 is-offset-2">
-                    <div class="content is-medium">
-                        <h1 class="title">Justin Medeiros</h1>
-                        <h2 class="subtitle is-4">CrossFit Fort Vancouver</h2>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-header">
-                                Featured
-                            </div>
-                            <div class="card" style="width: 18rem;">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Cras justo odio</li>
-                                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                                    <li class="list-group-item">Vestibulum at eros</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8 is-offset-2">
-                    <span class="placeholder col-12"></span>
-
-                </div>
+<div class="row">
+    <div class="d-inline-flex">
+        <div class='name-box mb-5'>
+            <div class="athlete-name">Justin Medeiros</div>
+            <div class="athlete-team">CrossFit Fort Vancouver</div>
+            <div class="athlete-country">
+                <img class="mr-1 fw-bold"
+                     src="{{ url_for('static', filename='flags/shiny/16/US.png') }}"> United States
             </div>
         </div>
     </div>
+    <div class="col-4">
 
-</section>
+        <a class="athlete-info my-2 border-bottom">No 1 in the world</a>
+        <a class="athlete-info my-2 border-bottom">No 1 in United States</a>
+        <a class="athlete-info my-2"> 26 Years old</a>
+    </div>
+    <div class="col-8"><span class="placeholder col-12" style="height: 250px"></span></div>
+</div>
+
+<hr>
+
+<div class="row">
+    <h4>Competition history</h4>
+    <table class="table mb-0 table-hover">
+
+        <thead class="bg-light">
+        <tr>
+            <td>Date</td>
+            <td>Place</td>
+            <td>Competition</td>
+            <td>Location</td>
+            <td>Division</td>
+            <td></td>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {% for i in comps %}
+        <tr>
+            <td>{{ i['date'] }}</td>
+            <td>{{ i['place'] }}</td>
+            <td>{{ i['comp_name'] }}</td>
+            <td>{{ i['city'] }}, {{ i['country'] }}</td>
+            <td>{{ i['division'] }}</td>
+            <td>
+
+            </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
 {% endblock %}

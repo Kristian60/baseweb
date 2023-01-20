@@ -1,14 +1,17 @@
 import sqlite3
-import os
 
 def call_db(query):
+    def name_items(x, names):
+        return {q:z for q,z in zip(names, x)}
+
     sqliteConnection = sqlite3.connect('app/db/db.db')
     cursor = sqliteConnection.cursor()
 
-    cursor.execute(query)
+    values = cursor.execute(query)
+    col_name_list = [tuple[0] for tuple in values.description]
     record = cursor.fetchall()
     cursor.close()
-    return record
+    return [name_items(x,col_name_list) for x in record]
 
 
 def get_top_worldwide(gender):
@@ -43,8 +46,40 @@ def get_top_per_nationality(nation, gender):
 
     return call_db(query)[:10]
 
+def get_all_competitions(athlete):
+    query = f'''
+    select * from competitions c
+    
+    join placements p
+    on p.comp_id = c.comp_id
+    
+    left join teams t
+    on t.team_id = p.team_id
+    
+    left join athletes a1
+    on a1.athlete_id = t.athlete_id
+    
+    left join athletes a2
+    on a2.athlete_id = p.athlete_id
+    
+    where a1.athlete_id = {athlete} or a2.athlete_id = {athlete}
+    
+    order by c.date desc
+    '''
+    return call_db(query)
+
+def get_teammates(tids):
+    tstring = ','.join([str(x) for x in tids])
+    query = f'''
+    select * from teams t
+    
+    join athletes a
+    on a.athlete_id = t.athlete_id
+    
+    where t.team_id in ({tstring})'''
+    return call_db(query)
+
 
 if __name__ == '__main__':
-    f = get_top_per_nationality('DK','M')
-
+    p = get_all_competitions(3871)
     print('ok')
