@@ -17,104 +17,31 @@
 
     <hr>
     <div class="row">
+        {% for t, head in zip(tables,cols) %}
         <div class="col">
             <div class="card shadow">
                 <table class="table mb-0 table-hover">
                     <thead class="bg-light">
                     <tr>
                         <th></th>
-                        <td>World Top 10 men</td>
+                        <td>{{ head }}</td>
                     </tr>
                     </thead>
                     <tbody>
 
-                    {% for i in ww_m %}
+                    {% for i in t %}
                     <tr>
                         <th>{{ loop.index0 + 1 }}</th>
                         <td><img class="fp-flag"
                                  src="{{ url_for('static', filename='flags/shiny/16/' + i['nationality'] + '.png') }}"><a
-                                href="/athletes?id={{i[0]}}">{{i['first_name']}} {{i['last_name']}} </a></td>
+                                href="/athlete?id={{i['athlete_id']}}">{{i['first_name']}} {{i['last_name']}} </a></td>
                     </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
-
-        <div class="col">
-            <div class="card shadow">
-                <table class="table mb-0 table-hover">
-                    <thead class="bg-light">
-                    <tr>
-                        <th></th>
-                        <td>World Top 10 women</td>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                    {% for i in ww_f %}
-                    <tr>
-                        <th>{{ loop.index0 + 1 }}</th>
-                        <td><img class="fp-flag"
-                                 src="{{ url_for('static', filename='flags/shiny/16/' + i['nationality'] + '.png') }}"><a
-                                href="/athletes?id={{i[0]}}">{{i['first_name']}} {{i['last_name']}} </a></td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card shadow">
-                <table class="table mb-0 table-hover">
-                    <thead class="bg-light">
-                    <tr>
-                        <th></th>
-                        <td>Denmark Top 10 men</td>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                    {% for i in dk_m %}
-                    <tr>
-                        <th>{{ loop.index0 + 1}}</th>
-                        <td><img class="fp-flag"
-                                 src="{{ url_for('static', filename='flags/shiny/16/' + i['nationality'] + '.png') }}"><a
-                                href="/athletes?id={{i[0]}}">{{i['first_name']}} {{i['last_name']}} </a></td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card shadow">
-                <table class="table mb-0 table-hover">
-                    <thead class="bg-light">
-                    <tr>
-                        <th></th>
-                        <td colspan="3">Denmark Top 10 women</td>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                    {% for i in dk_f %}
-                    <tr>
-                        <th>{{ loop.index0 + 1 }}</th>
-                        <td><img class="fp-flag"
-                                 src="{{ url_for('static', filename='flags/shiny/16/' + i['nationality'] + '.png') }}">
-                            <a href="/athletes?id={{i[0]}}">{{i['first_name']}} {{i['last_name']}} </a></td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
 

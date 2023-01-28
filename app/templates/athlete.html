@@ -6,18 +6,18 @@
 <div class="row">
     <div class="d-inline-flex">
         <div class='name-box mb-5'>
-            <div class="athlete-name">Justin Medeiros</div>
-            <div class="athlete-team">CrossFit Fort Vancouver</div>
+            <div class="athlete-name">{{ athlete_info['first_name'] }} {{ athlete_info['last_name'] }}</div>
+            <div class="athlete-team">{{ athlete_info['affiliate'] }}</div>
             <div class="athlete-country">
                 <img class="mr-1 fw-bold"
-                     src="{{ url_for('static', filename='flags/shiny/16/US.png') }}"> United States
+                     src="{{ url_for('static', filename='flags/shiny/16/' + athlete_info['nationality'] + '.png') }}"> {{athlete_info['country_name']}}
             </div>
         </div>
     </div>
     <div class="col-4">
 
         <a class="athlete-info my-2 border-bottom">No 1 in the world</a>
-        <a class="athlete-info my-2 border-bottom">No 1 in United States</a>
+        <a class="athlete-info my-2 border-bottom">No 1 in {{athlete_info['country_name']}}</a>
         <a class="athlete-info my-2"> 26 Years old</a>
     </div>
     <div class="col-8"><span class="placeholder col-12" style="height: 250px"></span></div>

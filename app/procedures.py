@@ -22,6 +22,7 @@ def get_top_worldwide(gender):
     on a.athlete_id = s.athlete_id
     where a.gender = '{gender}'
     and to_date = '9999-12-31'
+    and model_id = 104
     
     order by mu-3*sigma desc
     
@@ -39,12 +40,27 @@ def get_top_per_nationality(nation, gender):
     
     where a.gender = '{gender}'
     and a.nationality = '{nation}'
-    and to_date = '9999-12-31'
+    and s.to_date = '9999-12-31'
+    and model_id = 104
+    
+    order by mu-3*sigma desc
     
     LIMIT 10;
     '''
 
     return call_db(query)[:10]
+
+def get_athlete_info(athlete_id):
+    query = f'''
+    select * from athletes a
+    
+    join countries c
+    on c.country_iso = a.nationality
+    
+    where a.athlete_id = {athlete_id}
+    '''
+
+    return call_db(query)
 
 def get_all_competitions(athlete):
     query = f'''
@@ -66,6 +82,8 @@ def get_all_competitions(athlete):
     
     order by c.date desc
     '''
+
+    print(query)
     return call_db(query)
 
 def get_teammates(tids):

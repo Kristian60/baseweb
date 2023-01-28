@@ -24,6 +24,14 @@ def gett(q):
 def ps_to_sqlite():
     df = pd.DataFrame(gett('select * from dbo.skills'))
     df.to_csv('skills.csv', index=False)
+    df = pd.DataFrame(gett('select * from dbo.athletes'))
+    df.to_csv('athletes.csv', index=False)
+    df = pd.DataFrame(gett('select * from dbo.competitions'))
+    df.to_csv('competitions.csv', index=False)
+    df = pd.DataFrame(gett('select * from dbo.teams'))
+    df.to_csv('teams.csv', index=False)
+    df = pd.DataFrame(gett('select * from dbo.placements'))
+    df.to_csv('placements.csv', index=False)
 
 
 if __name__ == '__main__':
